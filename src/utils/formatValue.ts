@@ -1,4 +1,10 @@
 const formatValue = (value: number): string =>
-  Intl.NumberFormat().format(value); // TODO
+  Intl.NumberFormat('BR', {
+    style: 'currency',
+    currency: 'BRL',
+    currencyDisplay: 'symbol',
+  })
+    .format(value)
+    .replace(/^(\D+)/, 'R$ ');
 
 export default formatValue;
